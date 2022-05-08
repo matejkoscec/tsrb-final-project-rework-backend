@@ -1,1 +1,18 @@
+server:
+  port: 8080
 
+spring:
+  liquibase:
+    change-log: db/db.changelog-master.xml
+    default-schema: schedule_planner
+    liquibase-schema: ${spring.liquibase.default-schema}
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/planner
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
